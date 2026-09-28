@@ -43,12 +43,23 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
-    <!-- Analytics (self-hosted) -->
-    <script
+    <!-- Set base path for GitHub Pages subdirectory -->
+    <script>
+      if (!window.__VITE_PUBLIC_PATH__) {
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        const isGitHubPages = pathSegments.includes('duckdb_opa_rule_generators');
+        window.__VITE_PUBLIC_PATH__ = isGitHubPages ? '/duckdb_opa_rule_generators/' : '/';
+        const base = document.createElement('base');
+        base.href = window.__VITE_PUBLIC_PATH__;
+        document.head.insertBefore(base, document.head.firstChild);
+      }
+    </script>
+    <!-- Analytics (self-hosted) - disabled to avoid ad blocker issues -->
+    <!-- <script
       defer
       src="https://a.caioricciuti.com/b.js"
       data-website-id="01a2547e-4f66-49f4-b935-f1eae9e8ab31"
-    ></script>
+    ></script> -->
     <script type="module" crossorigin src="./assets/index-mBaIY2gs.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CwMPDSOi.css">
     <link rel="manifest" href="./manifest.webmanifest">

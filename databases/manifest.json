@@ -1,8 +1,1 @@
-{
-  "ui": { "kiosk": true },
-  "databases": [
-    { "name": "Insurance Tables", "file": "https://surampudisundaram.github.io/duckdb_opa_rule_generators/guidewire_insurance_db.duckdb" },
-    { "name": "GDPR Wiki OPA", "file": "https://surampudisundaram.github.io/duckdb_opa_rule_generators/opa_from_gdpr_wiki_db.duckdb" },
-    { "name": "PET Wiki OPA", "file": "https://surampudisundaram.github.io/duckdb_opa_rule_generators/opa_from_pet_wiki_db" }
-  ]
-}   
+{"tables":[],"views":[]}
