@@ -1,10 +1,1 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const swUrl = new URL('./sw.js', window.location.href);
-    navigator.serviceWorker
-      .register(swUrl, { scope: './' })
-      .catch((error) => {
-        console.warn('Duck-UI service worker registration failed:', error);
-      });
-  });
-}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/python_environments/uv_environments/duckdb_opa_policy_generators/duckdb_opa_rule_generators/sw.js', { scope: '/python_environments/uv_environments/duckdb_opa_policy_generators/duckdb_opa_rule_generators/' })})}
