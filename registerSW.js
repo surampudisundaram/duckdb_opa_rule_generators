@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/python_environments/uv_environments/semantica-laya-spiceai/duckui_publish_contents/sw.js', { scope: '/python_environments/uv_environments/semantica-laya-spiceai/duckui_publish_contents/' })})}
