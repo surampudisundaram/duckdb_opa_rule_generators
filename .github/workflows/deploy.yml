@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+# This repository IS the built site: the Duck-UI `dist/` output lives at the repo
+# root, so there is no build step to run here. We publish the root verbatim.
+#
+# The site is served from a project subpath
+# (https://surampudisundaram.github.io/duckdb_opa_rule_generators/), and every
+# asset URL in index.html, sw.js, registerSW.js and manifest.webmanifest is
+# hard-coded with the `/duckdb_opa_rule_generators` base. This workflow must
+# therefore keep publishing from the `main` branch ROOT. Publishing a
+# subdirectory, or moving to a custom domain, will 404 every asset and render a
+# blank page unless the bundle is rebuilt with a matching base.
+
+on:
+  push:
+    branches: [main]
+  # Allows a re-deploy from the Actions tab without pushing a no-op commit.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Queue rather than cancel, so an in-flight deploy always finishes and the most
+# recent push is what ends up live.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # path '.' publishes the whole repo root. Hidden files are excluded by
+      # default, which keeps .git and .github out of the artifact.
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

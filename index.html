@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./logo-padding.png" />
+    <link rel="icon" type="image/png" href="/duckdb_opa_rule_generators/logo-padding.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Duck-UI — DuckDB in your browser</title>
     <meta
@@ -43,41 +43,20 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
-    <!-- Set base path for GitHub Pages subdirectory -->
-    <script>
-      if (!window.__VITE_PUBLIC_PATH__) {
-        const pathSegments = window.location.pathname.split('/').filter(Boolean);
-        const isGitHubPages = pathSegments.includes('duckdb_opa_rule_generators');
-        window.__VITE_PUBLIC_PATH__ = isGitHubPages ? '/duckdb_opa_rule_generators/' : '/';
-        const base = document.createElement('base');
-        base.href = window.__VITE_PUBLIC_PATH__;
-        document.head.insertBefore(base, document.head.firstChild);
-      }
-    </script>
-    <!-- Analytics (self-hosted) - disabled to avoid ad blocker issues -->
-    <!-- <script
+    <!-- Analytics (self-hosted) -->
+    <script
       defer
       src="https://a.caioricciuti.com/b.js"
       data-website-id="01a2547e-4f66-49f4-b935-f1eae9e8ab31"
-    ></script> -->
-    <script type="module" crossorigin src="./assets/index-mBaIY2gs.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CwMPDSOi.css">
-    <link rel="manifest" href="./manifest.webmanifest">
-    <script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script>
-  </head>
+    ></script>
+    <script type="module" crossorigin src="/duckdb_opa_rule_generators/assets/index-C5KVUYCF.js"></script>
+    <link rel="stylesheet" crossorigin href="/duckdb_opa_rule_generators/assets/index-CwMPDSOi.css">
+  <link rel="manifest" href="/duckdb_opa_rule_generators/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/duckdb_opa_rule_generators/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
-    <main>
-      <h1>DuckDB OPA Rule Generators</h1>
-      <ul>
-        <li><a href="./guidewire_insurance_db.duckdb">guidewire_insurance_db.duckdb</a></li>
-        <li><a href="./opa_from_gdpr_wiki_db.duckdb">opa_from_gdpr_wiki_db</a></li>
-        <li><a href="./opa_from_pet_wiki_db">opa_from_pet_wiki_db</a></li>
-      </ul>
-    </main>
     <!-- Runtime env (overwritten by the Docker entrypoint; empty default otherwise).
          An external file instead of an injected inline script so the CSP can
          stay free of 'unsafe-inline'. -->
-    <script src="./env.js"></script>
+    <script src="/duckdb_opa_rule_generators/env.js"></script>
   </body>
 </html>
