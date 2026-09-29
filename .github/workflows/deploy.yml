@@ -37,9 +37,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # `enablement: true` is required on a repo that has never had a Pages
+      # deployment. Without it this step calls GET /repos/{owner}/{repo}/pages,
+      # gets a 404 because no site object exists yet, and the run fails here -
+      # skipping the upload and deploy steps entirely. It is idempotent, so it
+      # is safe to leave on for every subsequent run.
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # path '.' publishes the whole repo root. Hidden files are excluded by
       # default, which keeps .git and .github out of the artifact.
