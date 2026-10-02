@@ -1,3 +1,40 @@
 {
-  "databases": []
+{
+  "ui": {
+    "kiosk": true
+  },
+  "databases": [
+    {
+      "name": "Guidewire Insurance",
+      "file": "guidewire_insurance_db.duckdb",
+      "alias": "guidewire_insurance",
+      "description": "Guidewire PolicyCenter-style insurance sample (claims, policies, contacts, activities).",
+      "autoLoad": true,
+      "readOnly": true
+    },
+    {
+      "name": "OPA from GDPR Wiki",
+      "file": "opa_from_gdpr_wiki_db.duckdb",
+      "alias": "gdpr_wiki",
+      "description": "GDPR text mined into tables for generating Open Policy Agent Rego rules.",
+      "autoLoad": true,
+      "readOnly": true
+    },
+    {
+      "name": "OPA from PET Wiki",
+      "file": "opa_from_pet_wiki_db.duckdb",
+      "alias": "pet_wiki",
+      "description": "PET encyclopedia text mined into tables for generating Open Policy Agent Rego rules.",
+      "autoLoad": true,
+      "readOnly": true
+    },
+    {
+      "name": "Insurance data (parquet views)",
+      "file": "insurance_data_opa_rego.duckdb",
+      "alias": "opa_parquet",
+      "description": "Views over the raw parquet export, read over HTTP from the site origin.",
+      "autoLoad": true,
+      "readOnly": true
+    }
+  ]
 }
